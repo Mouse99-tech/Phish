@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Google</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="https://www.google.com/favicon.ico">
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background: white;
+    }
+    .logo {
+      margin-top: 100px;
+    }
+    .logo img {
+      width: 272px;
+      max-width: 80%;
+    }
+    .search-box {
+      margin-top: 30px;
+      padding: 0 20px;
+    }
+    input[type="text"] {
+      width: 100%;
+      max-width: 500px;
+      padding: 12px 20px;
+      font-size: 16px;
+      border: 1px solid #dfe1e5;
+      border-radius: 24px;
+      outline: none;
+    }
+    .buttons {
+      margin-top: 20px;
+    }
+    button {
+      background: #f8f9fa;
+      border: 1px solid #f8f9fa;
+      padding: 10px 20px;
+      margin: 5px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    button:hover {
+      border: 1px solid #c6c6c6;
+    }
+    @media (max-width: 600px) {
+      .logo {
+        margin-top: 60px;
+      }
+      input[type="text"] {
+        font-size: 14px;
+        padding: 10px 16px;
+      }
+      button {
+        padding: 8px 16px;
+        font-size: 13px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="logo">
+    <img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" alt="Google Logo">
+  </div>
+
+  <div class="search-box">
+    <input type="text" id="searchInput" placeholder="Search Google or type a URL" onkeydown="handleKey(event)">
+  </div>
+
+  <div class="buttons">
+    <button onclick="checkSearch()">Google Search</button>
+    <button onclick="feelingLucky()">I'm Feeling Lucky</button>
+  </div>
+
+  <script>
+    function checkSearch() {
+      const input = document.getElementById('searchInput').value.trim();
+      if (input === "123456") {
+        window.location.href = "https://www.youtube.com/@zerodarknexus";
+      } else if (input !== "") {
+        const query = encodeURIComponent(input);
+        window.location.href = "https://www.google.com/search?q=" + query;
+      } else {
+        alert("Please enter something to search.");
+      }
+    }
+
+    function handleKey(event) {
+      if (event.key === "Enter") {
+        checkSearch();
+      }
+    }
+
+    function feelingLucky() {
+      alert("Try your luck, Boss!");
+    }
+  </script>
+
+</body>
+</html>
